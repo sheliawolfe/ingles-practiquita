@@ -11,7 +11,7 @@ Esta es una página de web muy especial para mi.<br>
 Quiero devolver a esas personas que me han llevado aquí.<br>
 Es muy importante a mi que me agradecer una que fue muy necesaria para que todo esto fuera posible.<br>
 
-### Bichos 🦋
+### Bichos 🪲
 
 Ahora, esta un trabajo de progreso, que se rompe a menudo.<br>
 Hay una fantasma en el caparazón.<br>
