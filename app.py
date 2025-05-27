@@ -157,4 +157,4 @@ def flashcard():
     return render_template("index.html", question=card["question"], options=card["options"])
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5005)
+    app.run(host"0.0.0.0", port=10000)
