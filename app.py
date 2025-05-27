@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session
 import random
 
 app = Flask(__name__)
-app.secret_key = "rigormortis"  # Replace with something secure
+app.secret_key = "rigormortis" 
 
 # Fill this list with your flashcards manually
 flashcards = [
@@ -157,4 +157,4 @@ def flashcard():
     return render_template("index.html", question=card["question"], options=card["options"])
 
 if __name__ == "__main__":
-    app.run(host"0.0.0.0", port=10000)
+    app.run(host="0.0.0.0", port=10000)
