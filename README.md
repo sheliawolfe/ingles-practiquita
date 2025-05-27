@@ -29,3 +29,9 @@ Thank you to all of my friends who help me with my Spanish.<br>
 This webpage is very special to me.<br>
 I want to give back to the people that have brought me here.<br>
 It is very important that I thank someone who was very necessary in making all of this possible.<br>
+
+# Bugs
+
+Right now, this is a work in progress, since it breaks often.<br>
+There is a ghost in the shell.<br>
+I cannot find it, but I am still looking.<br>
