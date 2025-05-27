@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cito Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: url('https://cdn.glitch.global/8ad48dfc-297d-4726-b6ef-8c5b8430fd5d/candy.jpg?v=1748332017478');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .options label {
+            background: #eef;
+            border-radius: 8px;
+            padding: 0.6rem 1rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .options label:hover {
+            background: #dde;
+        }
+
+        button {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            background: #0055ff;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .retry-msg {
+            color: red;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+    window.onload = function() {
+        {% if correct %}
+            alert("Correct! You got it, mi cielo.");
+        {% elif retry %}
+            alert("Oops! Try again.");
+        {% endif %}
+    };
+</script>
+</head>
+<body>
+    <div class="card">
+        <form method="post">
+    <h2>{{ question }}</h2>
+    <div class="options">
+        {% for opt in options %}
+        <label>
+            <input type="radio" name="answer" value="{{ opt }}"> {{ opt }}
+        </label>
+        {% endfor %}
+    </div>
+    <button type="submit">Check</button>
+</form>
+</div>
+</body>
+</html>
