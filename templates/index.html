@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta property="og:image" content="https://cdn.glitch.global/8ad48dfc-297d-4726-b6ef-8c5b8430fd5d/preview.png?v=1748467223159">
+    <meta property="og:description" content="A short English grammar quiz for those wanting to practice. (todo en ingles)">
+    <meta property="og:type" content="website">
     <title>Grammar Quiz</title>
     <style>
         body {
@@ -68,7 +71,7 @@
     <script>
     window.onload = function() {
         {% if correct %}
-            alert("Correct! You got it, mi cielo.");
+            alert("Correct! You got it, wey!");
         {% elif retry %}
             alert("Oops! Try again.");
         {% endif %}
@@ -86,7 +89,7 @@
         </label>
         {% endfor %}
     </div>
-    <button type="submit">Check</button>
+    <button type="submit">CHECK</button>
 </form>
 </div>
 </body>
