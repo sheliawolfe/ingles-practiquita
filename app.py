@@ -1,9 +1,69 @@
 from flask import Flask, render_template, request, session
 import random
+import json
+import os
 
 app = Flask(__name__)
 app.secret_key = "rigormortis" 
 
+# Signup Form
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        if not os.path.exists('users.json'):
+            with open)'users.json', 'w') as f:
+                json.dump({}, f)
+
+        with open('users.json', 'r') as f:
+            users = json.load(f)
+
+        if username in users:
+            return 'Username already exists!"'
+
+        users[username] = password
+
+        with open('users.json', 'w') as f:
+            json.dump(users, f)
+
+        session['user'] = username
+        return redirect('/quiz')
+    return render_template('signup.html')
+
+# Login Form
+@app.route('/')
+def index():
+    if 'user' in session:
+        return redirect('/quiz')
+    return render_template('login.html')
+
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+
+    with open('users.json', 'r') as f:
+        users = json.load(f)
+
+    if username in users and users[username] == password:
+        session['user'] = username
+        return redirect('/quiz')
+
+    return 'Invalid credentials..'
+
+# Logout
+@app.route('/logout')
+def logout():
+    session.pop('user', None)
+    return redirect('/')
+
+@app.route('/index')
+def index():
+    if 'user' not in session:
+        return redirect('/')
+    
 # Fill this list with your flashcards manually
 flashcards = [
     {
@@ -108,7 +168,6 @@ flashcards = [
     }
 ]
 
-
 @app.route("/", methods=["GET", "POST"])
 def flashcard():
     if "answered" not in session:
@@ -158,3 +217,4 @@ def flashcard():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
