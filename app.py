@@ -14,7 +14,7 @@ def signup():
         password = request.form['password']
 
         if not os.path.exists('users.json'):
-            with open)'users.json', 'w') as f:
+            with open('users.json', 'w') as f:
                 json.dump({}, f)
 
         with open('users.json', 'r') as f:
@@ -216,5 +216,6 @@ def flashcard():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
 
 
