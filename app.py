@@ -61,8 +61,7 @@ def logout():
 
 @app.route('/index')
 def index():
-    if 'user' not in session:
-        return redirect('/')
+    user = session.get('user')
     
 # Fill this list with your flashcards manually
 flashcards = [
@@ -217,4 +216,5 @@ def flashcard():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
 
