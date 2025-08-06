@@ -79,6 +79,21 @@
 </script>
 </head>
 <body>
+    
+    {% if user %}
+  <p>Welcome back, {{ user }}! <a href="/logout">Logout</a></p>
+{% else %}
+  <p><a href="/signup">Sign up</a> or <a href="/">Log in</a> to track your progress 💾</p>
+{% endif %}
+
+<h2>Translate this:</h2>
+<p>{{ card.question }}</p>
+
+<form method="POST" action="/check">
+  <input type="text" name="answer" placeholder="Your answer" required>
+  <button type="submit">Submit</button>
+</form>
+    
     <div class="card">
         <form method="post">
     <h2>{{ question }}</h2>
