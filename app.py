@@ -29,15 +29,10 @@ def signup():
             json.dump(users, f)
 
         session['user'] = username
-        return redirect('/quiz')
+        return redirect('/')
     return render_template('signup.html')
 
 # Login Form
-@app.route('/')
-def index():
-    if 'user' in session:
-        return redirect('/quiz')
-    return render_template('login.html')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -49,19 +44,20 @@ def login():
 
     if username in users and users[username] == password:
         session['user'] = username
-        return redirect('/quiz')
+        return redirect('/')
 
     return 'Invalid credentials..'
+
+@app.route('/reset')
+def reset():
+    session.clear()
+    return 'Session cleared. Now go to / or /quiz.'
 
 # Logout
 @app.route('/logout')
 def logout():
     session.pop('user', None)
     return redirect('/')
-
-@app.route('/quiz')
-def quiz():
-    user = session.get('user')
     
 # Fill this list with your flashcards manually
 flashcards = [
@@ -216,6 +212,7 @@ def flashcard():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
 
 
 
