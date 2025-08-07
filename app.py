@@ -193,11 +193,11 @@ def flashcard():
             session["answer"] = card["answer"]
             session["options"] = card["options"]
 
-            return render_template("index.html", question=card["question"], options=card["options"], correct=True)
+            return render_template("index.html", card=card, correct=True)
 
         else:
             card = flashcards[current_index]
-            return render_template("index.html", question=card["question"], options=card["options"], retry=True)
+            return render_template("index.html", card=card, retry=True)
 
     if "current_index" not in session:
         session["current_index"] = 0
@@ -208,10 +208,11 @@ def flashcard():
     else:
         card = flashcards[session["current_index"]]
 
-    return render_template("index.html", question=card["question"], options=card["options"])
+    return render_template("index.html", card=card)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
 
 
 
