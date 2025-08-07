@@ -67,8 +67,27 @@
             margin-bottom: 1rem;
             font-weight: bold;
         }
-    </style>
-    <script>
+
+        .footer-auth {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            text-align: center;
+            color: #000;
+          }
+
+        .footer-auth a {
+            color: #2a65f5;
+            text-decoration: none;
+            margin: 0 0.5rem;
+          }
+</style>
+    
+<script>
+
     window.onload = function() {
         {% if correct %}
             alert("Correct! You got it, wey!");
@@ -76,15 +95,10 @@
             alert("Oops! Try again.");
         {% endif %}
     };
+
 </script>
 </head>
 <body>
-    
-    {% if user %}
-  <p>Welcome back, {{ user }}! <a href="/logout">Logout</a></p>
-{% else %}
-  <p><a href="/signup">Sign up</a> or <a href="/">Log in</a> to track your progress 💾</p>
-{% endif %}
 
 <h2>Translate this:</h2>
 <p>{{ card.question }}</p>
@@ -107,5 +121,12 @@
     <button type="submit">CHECK</button>
 </form>
 </div>
+<footer class="footer-auth">
+        {% if user %}
+  <p>Welcome back, {{ user }}! <a href="/logout">Logout</a></p>
+{% else %}
+  <p><a href="/signup">Sign up</a> or <a href="/">Log in</a> to track your progress 💾</p>
+{% endif %}
+</footer>
 </body>
 </html>
