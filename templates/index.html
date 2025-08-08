@@ -103,12 +103,7 @@
     <h2>Translate this:</h2>
     <p>{{ card.question }}</p>
 
-    <form method="POST" action="/check">
-      <input type="text" name="answer" placeholder="Your answer" required>
-      <button type="submit">Submit</button>
-    </form>
-
-    {% if options %}
+     <form method="POST" action="/check">
       <div class="options">
         {% for opt in options %}
           <label>
@@ -117,9 +112,9 @@
         {% endfor %}
       </div>
       <button type="submit">CHECK</button>
-    {% endif %}
+    </form>
   </div>
-
+    
   <footer class="footer-auth">
     {% if user %}
       <p>Welcome back, {{ user }}! <a href="/logout">Logout</a></p>
