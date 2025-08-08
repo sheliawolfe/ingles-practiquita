@@ -100,33 +100,35 @@
 </head>
 <body>
 
-<h2>Translate this:</h2>
-<p>{{ card.question }}</p>
+<body>
+  <div class="card">
+    <h2>Translate this:</h2>
+    <p>{{ card.question }}</p>
 
-<form method="POST" action="/check">
-  <input type="text" name="answer" placeholder="Your answer" required>
-  <button type="submit">Submit</button>
-</form>
-    
-    <div class="card">
-        <form method="post">
-    <h2>{{ question }}</h2>
-    <div class="options">
+    <form method="POST" action="/check">
+      <input type="text" name="answer" placeholder="Your answer" required>
+      <button type="submit">Submit</button>
+    </form>
+
+    {% if options %}
+      <div class="options">
         {% for opt in options %}
-        <label>
+          <label>
             <input type="radio" name="answer" value="{{ opt }}"> {{ opt }}
-        </label>
+          </label>
         {% endfor %}
-    </div>
-    <button type="submit">CHECK</button>
-</form>
-</div>
-<footer class="footer-auth">
-        {% if user %}
-  <p>Welcome back, {{ user }}! <a href="/logout">Logout</a></p>
-{% else %}
-  <p><a href="/signup">Sign up</a> or <a href="/">Log in</a> to track your progress 💾</p>
-{% endif %}
-</footer>
+      </div>
+      <button type="submit">CHECK</button>
+    {% endif %}
+  </div>
+
+  <footer class="footer-auth">
+    {% if user %}
+      <p>Welcome back, {{ user }}! <a href="/logout">Logout</a></p>
+    {% else %}
+      <p><a href="/signup">Sign up</a> or <a href="/login">Log in</a> to track your progress 💾</p>
+    {% endif %}
+  </footer>
+</body>
 </body>
 </html>
