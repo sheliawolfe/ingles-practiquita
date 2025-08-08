@@ -33,6 +33,9 @@ def signup():
     return render_template('signup.html')
 
 # Login Form
+@app.route('/login', methods=['GET'])
+def login_form():
+    return render_template('login.html')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -212,6 +215,7 @@ def flashcard():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
 
 
 
