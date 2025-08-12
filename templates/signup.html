@@ -1,7 +1,7 @@
 <head>
   <title>Sign Up</title>
   <style>
-      body {
+    body {
       font-family: 'Segoe UI', sans-serif;
       background: url('https://cdn.glitch.global/8ad48dfc-297d-4726-b6ef-8c5b8430fd5d/candy.jpg?v=1748332017478');
       background-size: cover;
@@ -11,7 +11,22 @@
       justify-content: center;
       align-items: center;
       height: 100dvh;
-      }
+  }
+
+    form {
+      display: flex;
+      flex-direction: column; /* stack children vertically */
+      gap: 10px; /* space between items */
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+  }
+
+    input, button {
+      padding: 10px;
+      font-size: 1em;
+  }
   </style>
 </head>
 <body>
@@ -25,4 +40,5 @@
 
 <p>Already have an account? <a href="/">Go to login</a></p>
 </body>
+
 
