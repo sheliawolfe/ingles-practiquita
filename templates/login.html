@@ -13,8 +13,7 @@
       height: 100dvh;
   }
 
-    h2 {
-      margin-bottom: 20px;
+    container {
       text-align: center;
   }
     
@@ -35,12 +34,11 @@
 
     p {
       margin-top: 20px;
-      text-align: center;
   }
   </style>
 </head>
 <body>
-  
+  <div class="container">
   <h2>Login</h2>
 <form method="POST" action="/login">
   <input type="text" name="username" placeholder="Username" required><br>
@@ -49,6 +47,8 @@
 </form>
 
 <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+  </div>
 </body>
+
 
 
