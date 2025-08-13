@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect, session
+from flask, datetime import Flask, render_template, request, redirect, session, timedelta
 import random
 import json
 import os
 
 app = Flask(__name__)
 app.secret_key = "rigormortis" 
+app.permanent_session_lifetime = timedelta(days=14)
 
 # Signup Form
 @app.route('/signup', methods=['GET', 'POST'])
@@ -51,10 +52,15 @@ def login():
 
     return 'Invalid credentials..'
 
+    session['user'] = username
+    session.permanent = True  
+    return redirect('/')
+
+
 @app.route('/reset')
 def reset():
     session.clear()
-    return 'Session cleared. Now go to / or /quiz.'
+    return 'Session cleared.'
 
 # Logout
 @app.route('/logout')
@@ -215,6 +221,7 @@ def flashcard():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
 
 
 
