@@ -77,13 +77,22 @@
             font-size: 0.9rem;
             text-align: center;
             color: #000;
-          }
+        }
 
         .footer-auth a {
             color: #2a65f5;
             text-decoration: none;
             margin: 0 0.5rem;
-          }
+        }
+
+         .topbar {
+            position: fixed; top: 10px; right: 12px;
+            background: rgba(255,255,255,.8);
+            padding: 6px 10px; border-radius: 8px; font-size: 14px;
+        }
+          .topbar a {
+              text-decoration: none;
+        }
 </style>
     
 <script>
@@ -113,6 +122,14 @@
     </div>
     <button type="submit">CHECK</button>
   </form>
+</div>
+
+    <div class="topbar">
+  {% if session.user %}
+    Welcome, {{ session.user }} · <a href="/logout">Logout</a>
+  {% else %}
+    <a href="/login">Log in</a> · <a href="/signup">Sign up</a>
+  {% endif %}
 </div>
 
   <footer class="footer-auth">
